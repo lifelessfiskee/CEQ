@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensino Fundamental - C.E.Q</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2d7a4f;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            color: #a8d5ba;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #246b43;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #1d5436;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intro h2 {
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stage-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #2d7a4f;
+        }
+
+        .stage-card h3 {
+            color: #2d7a4f;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stage-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .stage-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .stage-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2d7a4f;
+            font-weight: bold;
+        }
+
+        .competencies {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .competencies h2 {
+            text-align: center;
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .comp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comp-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .comp-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .comp-item i {
+            font-size: 3rem;
+            color: #2d7a4f;
+            margin-bottom: 1rem;
+        }
+
+        .comp-item h3 {
+            color: #2d7a4f;
+            margin-bottom: 0.5rem;
+        }
+
+        .disciplines {
+            margin: 3rem 0;
+        }
+
+        .disciplines h2 {
+            text-align: center;
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .disc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .disc-item {
+            background-color: #2d7a4f;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .disc-item:hover {
+            transform: scale(1.05);
+            background-color: #246b43;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #2d7a4f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="logo.png" alt="Logo C.E.Q" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li class="dropdown">
+                        <a href="#ensino">Ensino ▾</a>
+                        <div class="dropdown-content">
+                            <a href="educacao-infantil.html">Educação Infantil</a>
+                            <a href="ensino-fundamental.html">Ensino Fundamental</a>
+                            <a href="ensino-medio.html">Ensino Médio</a>
+                        </div>
+                    </li>
+                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <h1>Ensino Fundamental</h1>
+        <p>Construindo alicerces sólidos para o conhecimento e formação integral</p>
+    </section>
+
+    <div class="container">
+        <section class="intro">
+            <h2>Formação Completa e Consistente</h2>
+            <p>
+                O Ensino Fundamental da C.E.Q oferece uma educação que desenvolve competências essenciais para a 
+                vida. Nossos alunos constroem uma base sólida de conhecimentos, desenvolvem pensamento crítico, 
+                habilidades socioemocionais e valores fundamentais que os preparam para os desafios futuros. 
+                Trabalhamos com dedicação nos Anos Iniciais e Finais, respeitando as características de cada faixa etária.
+            </p>
+        </section>
+
+        <div class="stages">
+            <div class="stage-card">
+                <h3>Anos Iniciais (1º ao 5º ano)</h3>
+                <ul>
+                    <li>Alfabetização e letramento</li>
+                    <li>Desenvolvimento do raciocínio lógico-matemático</li>
+                    <li>Introdução às ciências naturais e sociais</li>
+                    <li>Estímulo à leitura e escrita criativa</li>
+                    <li>Desenvolvimento da autonomia</li>
+                    <li>Educação socioemocional</li>
+                </ul>
+            </div>
+            <div class="stage-card">
+                <h3>Anos Finais (6º ao 9º ano)</h3>
+                <ul>
+                    <li>Aprofundamento disciplinar</li>
+                    <li>Desenvolvimento do pensamento crítico</li>
+                    <li>Preparação para o ensino médio</li>
+                    <li>Projetos interdisciplinares</li>
+                    <li>Protagonismo estudantil</li>
+                    <li>Orientação vocacional inicial</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="competencies">
+        <h2>Competências Desenvolvidas</h2>
+        <div class="comp-grid">
+            <div class="comp-item">
+                <i class="fas fa-brain"></i>
+                <h3>Pensamento Crítico</h3>
+                <p>Capacidade de analisar, questionar e resolver problemas complexos</p>
+            </div>
+            <div class="comp-item">
+                <i class="fas fa-users"></i>
+                <h3>Trabalho em Equipe</h3>
+                <p>Colaboração, respeito às diferenças e comunicação eficaz</p>
+            </div>
+            <div class="comp-item">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Criatividade</h3>
+                <p>Inovação, expressão artística e soluções originais</p>
+            </div>
+            <div class="comp-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Autonomia</h3>
+                <p>Responsabilidade, organização e gestão do próprio aprendizado</p>
+            </div>
+            <div class="comp-item">
+                <i class="fas fa-heart"></i>
+                <h3>Inteligência Emocional</h3>
+                <p>Autoconhecimento, empatia e gestão das emoções</p>
+            </div>
+            <div class="comp-item">
+                <i class="fas fa-globe"></i>
+                <h3>Cidadania</h3>
+                <p>Valores éticos, respeito ao meio ambiente e consciência social</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="disciplines">
+            <h2>Disciplinas do Currículo</h2>
+            <div class="disc-grid">
+                <div class="disc-item">Língua Portuguesa</div>
+                <div class="disc-item">Matemática</div>
+                <div class="disc-item">Ciências</div>
+                <div class="disc-item">História</div>
+                <div class="disc-item">Geografia</div>
+                <div class="disc-item">Inglês</div>
+                <div class="disc-item">Educação Física</div>
+                <div class="disc-item">Artes</div>
+                <div class="disc-item">Ensino Religioso</div>
+                <div class="disc-item">Redação</div>
+            </div>
+        </section>
+    </div>
+
+    <a href="https://wa.me/556436511246" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2025 Cooperativa De Ensino De Quirinópolis (C.E.Q) - Todos os direitos reservados</p>
+        <p>38 anos educando para a vida 💚</p>
+    </footer>
+</body>
+</html>
