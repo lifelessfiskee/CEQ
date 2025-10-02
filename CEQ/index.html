@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEQ - Cooperativa De Ensino De Quirinópolis</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #2d7a4f;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            color: #a8d5ba;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #246b43;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #1d5436;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .highlight {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* About Section */
+        .about {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .about h2 {
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #2d7a4f;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #2d7a4f;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #2d7a4f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-card i {
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #2d7a4f;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h2 {
+            color: #2d7a4f;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info h3 {
+            color: #2d7a4f;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .info-item:hover {
+            transform: translateX(5px);
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: #2d7a4f;
+            min-width: 30px;
+        }
+
+        .info-item a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover {
+            color: #2d7a4f;
+        }
+
+        .contact-form h2,
+        .contact-map h2 {
+            color: #2d7a4f;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2d7a4f;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background-color: #2d7a4f;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #246b43;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d7a4f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .contact-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                margin-bottom: 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo C.E.Q" class="logo">
+                <span class="logo-text">CEQ</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li class="dropdown">
+                        <a href="#ensino">Ensino ▾</a>
+                        <div class="dropdown-content">
+                            <a href="educacao-infantil.html">Educação Infantil</a>
+                            <a href="ensino-fundamental.html">Ensino Fundamental</a>
+                            <a href="ensino-medio.html">Ensino Médio</a>
+                        </div>
+                    </li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Uma escola para chamar de nossa 💚</h1>
+        <p class="highlight">38 anos educando para a vida</p>
+        <p>Educação Infantil ao Ensino Médio</p>
+    </section>
+
+    <!-- About Section -->
+    <div class="container">
+        <section class="about">
+            <h2>Bem-vindo à C.E.Q.</h2>
+            <p>
+                A Cooperativa De Ensino De Quirinópolis é uma instituição comprometida com a excelência educacional há 38 anos. 
+                Oferecemos educação de qualidade desde a Educação Infantil até o Ensino Médio, preparando nossos alunos para os 
+                desafios da vida com valores sólidos, conhecimento amplo e desenvolvimento integral.
+            </p>
+        </section>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-child"></i>
+                <h3>Educação Infantil</h3>
+                <p>Base sólida para o desenvolvimento integral da criança em ambiente acolhedor e estimulante.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-book"></i>
+                <h3>Ensino Fundamental</h3>
+                <p>Formação consistente com foco no desenvolvimento de habilidades cognitivas e socioemocionais.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Ensino Médio</h3>
+                <p>Preparação completa para o futuro acadêmico e profissional dos nossos estudantes.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Equipe Qualificada</h3>
+                <p>Profissionais comprometidos e capacitados para oferecer o melhor ensino.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="depoimentos">
+        <h2>O que dizem sobre nós</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">
+                    "A C.E.Q. transformou a vida da minha filha. Ela está mais confiante, feliz e adora ir para a escola todos os dias. 
+                    A equipe é maravilhosa e o ensino é de excelente qualidade!"
+                </p>
+                <p class="testimonial-author">Maria Silva</p>
+                <p class="testimonial-role">Mãe de aluna da Educação Infantil</p>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">
+                    "Meu filho estuda na C.E.Q. desde o fundamental e hoje está no ensino médio. A evolução dele foi incrível! 
+                    A escola prepara realmente para a vida e para o futuro."
+                </p>
+                <p class="testimonial-author">João Santos</p>
+                <p class="testimonial-role">Pai de aluno do Ensino Médio</p>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">
+                    "Escolher a C.E.Q. foi a melhor decisão que tomamos. A atenção individual que cada aluno recebe e o 
+                    ambiente acolhedor fazem toda a diferença no desenvolvimento das crianças."
+                </p>
+                <p class="testimonial-author">Ana Paula Oliveira</p>
+                <p class="testimonial-role">Mãe de aluno do Ensino Fundamental</p>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">
+                    "Os valores e a qualidade de ensino da C.E.Q. são incomparáveis. Meus filhos estudam aqui e estou muito 
+                    satisfeito com o desenvolvimento acadêmico e pessoal deles."
+                </p>
+                <p class="testimonial-author">Carlos Ferreira</p>
+                <p class="testimonial-role">Pai de alunos do Fundamental e Médio</p>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">
+                    "A estrutura da escola e o carinho dos professores são admiráveis. Minha filha adora estudar aqui 
+                    e eu tenho total confiança na educação que ela recebe!"
+                </p>
+                <p class="testimonial-author">Beatriz Costa</p>
+                <p class="testimonial-role">Mãe de aluna da Educação Infantil</p>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">
+                    "Recomendo a C.E.Q. de olhos fechados! São 38 anos de tradição e excelência que fazem toda a diferença 
+                    na formação dos nossos filhos. Gratidão por tudo!"
+                </p>
+                <p class="testimonial-author">Roberto Almeida</p>
+                <p class="testimonial-role">Pai de aluno do Ensino Médio</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contato">
+        <div class="contact-container">
+            <div class="contact-top">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Telefone:</strong><br>
+                            <a href="tel:+556436511246">(64) 3651-1246</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp:</strong><br>
+                            <a href="https://wa.me/556436511246" target="_blank">(64) 3651-1246</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>E-mail:</strong><br>
+                            <a href="mailto:contato@ceq.edu.br">contato@ceq.edu.br</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Endereço:</strong><br>
+                            Rua Exemplo, 123 - Centro<br>
+                            Quirinópolis - GO, 75860-000
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>Envie sua Mensagem</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-map">
+                <h2>Nossa Localização</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.7243570212654!2d-50.456291!3d-18.4508203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x949f09ebee0040ad%3A0xce6024a1225a263!2sCooperativa%20de%20Ensino%20Quirin%C3%B3polis!5e0!3m2!1spt-BR!2sbr!4v1759426026556!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/556436511246" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Cooperativa De Ensino De Quirinópolis (C.E.Q.) - Todos os direitos reservados</p>
+        <p>38 anos educando para a vida 💚</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
