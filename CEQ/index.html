@@ -66,8 +66,21 @@
             padding: 0 2rem;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .logo {
             height: 60px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
         }
 
         nav ul {
@@ -530,6 +543,11 @@
                 gap: 1rem;
             }
 
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
             nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
@@ -558,7 +576,10 @@
   
     <header>
         <div class="header-container">
-            <img src="logo.png" alt="Logo CEQ" class="logo">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo CEQ" class="logo">
+                <span class="logo-text">CEQ</span>
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Início</a></li>
@@ -721,7 +742,7 @@
 
     <footer>
         <p>&copy; 2025 Cooperativa De Ensino De Quirinópolis (CEQ) - Todos os direitos reservados</p>
-        <p>38 anos educando para a vida</p>
+        <p>38 ANOS EDUCANDO PARA A VIDA 💚</p>
     </footer>
 
     <script>
@@ -733,4 +754,3 @@
     </script>
 </body>
 </html>
-
