@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolsas de Estudo - CEQ | Cooperativa de Ensino Quirinópolis</title>
+    <title>Bolsas de Estudo - CEQ | Escola Particular Quirinópolis</title>
     
-    <meta name="description" content="Confira os editais e informações sobre bolsas de estudo da CEQ - Cooperativa de Ensino de Quirinópolis. Educação de qualidade acessível.">
-    <meta name="keywords" content="bolsas de estudo quirinopolis, bolsas CEQ, edital bolsas, desconto escola quirinopolis">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    
+    <meta name="description" content="Bolsas de Estudo na CEQ - Quirinópolis. Oportunidades de desconto para educação de qualidade. Confira os programas disponíveis e faça sua inscrição!">
+    <meta name="keywords" content="bolsas de estudo quirinopolis, desconto escola quirinopolis, bolsa CEQ, auxilio educacao quirinopolis">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         * {
             margin: 0;
@@ -43,8 +46,21 @@
             padding: 0 2rem;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .logo {
             height: 60px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
         }
 
         .mobile-menu-toggle {
@@ -54,6 +70,7 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 0.5rem;
         }
 
         nav ul {
@@ -104,19 +121,19 @@
             display: block;
         }
 
-        .hero {
+        .hero-section {
             background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
         }
 
-        .hero h1 {
+        .hero-section h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-        .hero p {
+        .hero-section p {
             font-size: 1.2rem;
         }
 
@@ -126,136 +143,213 @@
             padding: 3rem 2rem;
         }
 
-        .info-section {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            border-left: 5px solid #2d7a4f;
-        }
-
-        .info-section h2 {
-            color: #2d7a4f;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .info-section p {
-            line-height: 1.8;
-            color: #555;
-        }
-
-        .documents-section {
-            margin-top: 3rem;
-        }
-
-        .documents-section h2 {
-            color: #2d7a4f;
-            margin-bottom: 2rem;
+        .intro {
             text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .intro h2 {
+            color: #2d7a4f;
             font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .documents-grid {
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bolsas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin: 3rem 0;
         }
 
-        .document-card {
-            background-color: white;
-            border-radius: 10px;
+        .bolsa-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 2rem;
+            border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 5px solid #2d7a4f;
             transition: all 0.4s ease;
-            border-top: 4px solid #2d7a4f;
         }
 
-        .document-card:hover {
+        .bolsa-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3);
         }
 
-        .document-icon {
+        .bolsa-card i {
             font-size: 3rem;
             color: #2d7a4f;
             margin-bottom: 1rem;
         }
 
-        .document-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .document-date {
-            font-size: 0.9rem;
-            color: #777;
+        .bolsa-card h3 {
+            color: #2d7a4f;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        .document-file {
-            font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 1.5rem;
-            word-break: break-all;
+        .bolsa-card p {
+            color: #555;
+            margin-bottom: 1rem;
         }
 
-        .download-btn {
-            display: inline-block;
+        .bolsa-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .bolsa-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+
+        .bolsa-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2d7a4f;
+            font-weight: bold;
+        }
+
+        .requisitos {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .requisitos h2 {
+            text-align: center;
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .requisitos-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .requisitos-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requisitos-list ul li {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .requisitos-list ul li:last-child {
+            border-bottom: none;
+        }
+
+        .requisitos-list ul li i {
+            color: #2d7a4f;
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .processo {
+            margin: 3rem 0;
+        }
+
+        .processo h2 {
+            text-align: center;
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.4s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.2);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
             background-color: #2d7a4f;
             color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            text-align: center;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
         }
 
-        .download-btn:hover {
-            background-color: #246b43;
-            transform: translateY(-2px);
-        }
-
-        .download-btn i {
-            margin-right: 0.5rem;
-        }
-
-        .loading, .no-documents {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: #777;
-        }
-
-        .loading i {
-            font-size: 3rem;
+        .step h3 {
             color: #2d7a4f;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1rem;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .no-documents i {
-            font-size: 4rem;
-            color: #ccc;
-            margin-bottom: 1rem;
-        }
-
-        .no-documents h3 {
-            color: #555;
             margin-bottom: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 10px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #2d7a4f;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         .whatsapp-float {
@@ -301,11 +395,17 @@
                 height: 50px;
             }
 
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
             .mobile-menu-toggle {
                 display: block;
+                order: 3;
             }
 
             nav {
+                order: 4;
                 width: 100%;
                 display: none;
             }
@@ -329,17 +429,22 @@
                 position: static;
                 display: none;
                 background-color: #1d5436;
+                box-shadow: none;
             }
 
             .dropdown.active .dropdown-content {
                 display: block;
             }
 
-            .hero h1 {
+            .hero-section h1 {
                 font-size: 1.8rem;
             }
 
-            .documents-grid {
+            .bolsas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
                 grid-template-columns: 1fr;
             }
 
@@ -356,7 +461,10 @@
 <body>
     <header>
         <div class="header-container">
-            <img src="logo.png" alt="Logo CEQ" class="logo">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo CEQ" class="logo">
+                <span class="logo-text">CEQ</span>
+            </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -364,7 +472,7 @@
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li class="dropdown" id="dropdownEnsino">
-                        <a href="#ensino">Ensino ▾</a>
+                        <a href="javascript:void(0)">Ensino ▾</a>
                         <div class="dropdown-content">
                             <a href="educacao-infantil.html">Educação Infantil</a>
                             <a href="ensino-fundamental.html">Ensino Fundamental</a>
@@ -379,42 +487,171 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero-section">
         <h1>Bolsas de Estudo</h1>
-        <p>Oportunidades para fazer parte da família CEQ</p>
+        <p>Oportunidades para você investir no futuro dos seus filhos</p>
     </section>
 
     <div class="container">
-        <div class="info-section">
-            <h2>
-                <i class="fas fa-info-circle"></i>
-                Sobre as Bolsas de Estudo
-            </h2>
+        <section class="intro">
+            <h2>Educação de Qualidade ao Seu Alcance</h2>
             <p>
-                A CEQ acredita que educação de qualidade deve ser acessível a todos. Por isso, oferecemos 
-                programas de bolsas de estudo para estudantes que demonstram excelência acadêmica, necessidade 
-                financeira ou talentos especiais em áreas como esportes, artes e ciências.
+                Na CEQ, acreditamos que todo aluno merece acesso à educação de excelência. Por isso, oferecemos 
+                diversos programas de bolsas de estudo para tornar nosso ensino mais acessível às famílias. 
+                Conheça nossas modalidades e descubra como você pode fazer parte da nossa comunidade escolar.
             </p>
-            <p style="margin-top: 1rem;">
-                Confira abaixo os editais e documentos disponíveis sobre nossos programas de bolsas. 
-                Para mais informações, entre em contato conosco através do WhatsApp ou visite nossa escola.
-            </p>
-        </div>
+        </section>
 
-        <div class="documents-section">
-            <h2>
-                <i class="fas fa-file-alt"></i>
-                Documentos e Editais
-            </h2>
-            
-            <div id="documentsContainer">
-                <div class="loading">
-                    <i class="fas fa-spinner"></i>
-                    <p>Carregando documentos...</p>
-                </div>
+        <div class="bolsas-grid">
+            <div class="bolsa-card">
+                <i class="fas fa-medal"></i>
+                <h3>Bolsa Mérito Acadêmico</h3>
+                <p>Para alunos que se destacam pelo desempenho escolar</p>
+                <ul>
+                    <li>Desconto de até 50%</li>
+                    <li>Baseada em notas e rendimento</li>
+                    <li>Renovável anualmente</li>
+                    <li>Disponível para todos os níveis</li>
+                </ul>
+            </div>
+
+            <div class="bolsa-card">
+                <i class="fas fa-users"></i>
+                <h3>Bolsa Família</h3>
+                <p>Desconto progressivo para irmãos matriculados</p>
+                <ul>
+                    <li>2º filho: 10% de desconto</li>
+                    <li>3º filho: 15% de desconto</li>
+                    <li>4º filho em diante: 20% de desconto</li>
+                    <li>Desconto aplicado nas mensalidades</li>
+                </ul>
+            </div>
+
+            <div class="bolsa-card">
+                <i class="fas fa-hands-helping"></i>
+                <h3>Bolsa Social</h3>
+                <p>Apoio para famílias em situação de vulnerabilidade</p>
+                <ul>
+                    <li>Desconto de até 70%</li>
+                    <li>Análise socioeconômica</li>
+                    <li>Documentação comprobatória</li>
+                    <li>Vagas limitadas</li>
+                </ul>
+            </div>
+
+            <div class="bolsa-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Bolsa Atleta</h3>
+                <p>Para estudantes que se destacam em esportes</p>
+                <ul>
+                    <li>Desconto de até 30%</li>
+                    <li>Comprovação de participação em competições</li>
+                    <li>Compromisso com os estudos</li>
+                    <li>Representação da escola em eventos</li>
+                </ul>
+            </div>
+
+            <div class="bolsa-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Bolsa Transferência</h3>
+                <p>Condições especiais para novos alunos</p>
+                <ul>
+                    <li>Desconto de até 20%</li>
+                    <li>Válido no primeiro ano</li>
+                    <li>Para alunos transferidos</li>
+                    <li>Sujeito a análise</li>
+                </ul>
+            </div>
+
+            <div class="bolsa-card">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Desconto Pontualidade</h3>
+                <p>Benefício para pagamentos em dia</p>
+                <ul>
+                    <li>5% de desconto</li>
+                    <li>Pagamento até o vencimento</li>
+                    <li>Aplicado mensalmente</li>
+                    <li>Cumulativo com outras bolsas</li>
+                </ul>
             </div>
         </div>
     </div>
+
+    <section class="requisitos">
+        <h2>Requisitos Gerais</h2>
+        <div class="requisitos-list">
+            <ul>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Documentação Completa:</strong> Apresentar todos os documentos solicitados no ato da inscrição
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Comprometimento Acadêmico:</strong> Manter bom desempenho escolar e frequência regular
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Conduta Exemplar:</strong> Respeitar as normas da escola e manter comportamento adequado
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Renovação Anual:</strong> A bolsa deve ser renovada a cada ano, sujeita a reavaliação
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Participação Ativa:</strong> Envolvimento nas atividades escolares e eventos da instituição
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="processo">
+            <h2>Como Se Inscrever</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Entre em Contato</h3>
+                    <p>Ligue ou envie WhatsApp para saber mais sobre as bolsas disponíveis</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Documentação</h3>
+                    <p>Reúna os documentos necessários para a modalidade escolhida</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Análise</h3>
+                    <p>Nossa equipe avaliará sua solicitação em até 7 dias úteis</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Matrícula</h3>
+                    <p>Aprovado! Venha fazer sua matrícula e começar a estudar</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Garantir sua Bolsa?</h2>
+            <p>Entre em contato conosco agora mesmo e descubra qual bolsa é ideal para você!</p>
+            <a href="https://wa.me/556436511246" class="cta-button">
+                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+            </a>
+        </div>
+    </section>
 
     <a href="https://wa.me/556436511246" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -425,131 +662,7 @@
         <p>38 ANOS EDUCANDO PARA A VIDA 💚</p>
     </footer>
 
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
-    
-        const firebaseConfig = {
-            apiKey: "AIzaSyAaqIkvYyNWBcV9rMVvIvJ7bEoE9OnWCdI",
-            authDomain: "ceq-bolsas.firebaseapp.com",
-            databaseURL: "https://ceq-bolsas-default-rtdb.firebaseio.com",
-            projectId: "ceq-bolsas",
-            storageBucket: "ceq-bolsas.firebasestorage.app",
-            messagingSenderId: "519180124863",
-            appId: "1:519180124863:web:c8c83babad3c39d5563c0a"
-        };
-    
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-    
-        function downloadFile(base64Data, fileName) {
-            const link = document.createElement('a');
-            link.href = base64Data;
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    
-        function getFileIcon(fileName) {
-            const extension = fileName.split('.').pop().toLowerCase();
-            switch (extension) {
-                case 'pdf':
-                    return 'fas fa-file-pdf';
-                case 'doc':
-                case 'docx':
-                    return 'fas fa-file-word';
-                case 'jpg':
-                case 'jpeg':
-                case 'png':
-                    return 'fas fa-file-image';
-                default:
-                    return 'fas fa-file-alt';
-            }
-        }
-    
-        window.downloadDocument = function(docId, fileName) {
-            const docRef = ref(database, `bolsas/${docId}`);
-            onValue(docRef, (snapshot) => {
-                const data = snapshot.val();
-                if (data && data.fileData) {
-                    downloadFile(data.fileData, fileName);
-                }
-            }, { onlyOnce: true });
-        };
-    
-        function loadDocuments() {
-            const documentsRef = ref(database, 'bolsas');
-            
-            onValue(documentsRef, (snapshot) => {
-                const data = snapshot.val();
-                const container = document.getElementById('documentsContainer');
-                
-                if (!data) {
-                    container.innerHTML = `
-                        <div class="no-documents">
-                            <i class="fas fa-inbox"></i>
-                            <h3>Nenhum documento disponível no momento</h3>
-                            <p>Em breve disponibilizaremos novos editais e informações sobre bolsas de estudo.</p>
-                        </div>
-                    `;
-                    return;
-                }
-    
-                const documentsArray = Object.entries(data).map(([key, value]) => ({
-                    id: key,
-                    ...value
-                }));
-    
-                documentsArray.sort((a, b) => b.timestamp - a.timestamp);
-    
-                let html = '<div class="documents-grid">';
-                
-                documentsArray.forEach(doc => {
-                    const date = new Date(doc.uploadDate).toLocaleDateString('pt-BR', {
-                        day: '2-digit',
-                        month: 'long',
-                        year: 'numeric'
-                    });
-                    
-                    const icon = getFileIcon(doc.fileName);
-                    const sizeInKB = (doc.fileSize / 1024).toFixed(2);
-                    
-                    html += `
-                        <div class="document-card">
-                            <i class="${icon} document-icon"></i>
-                            <div class="document-title">${doc.title}</div>
-                            <div class="document-date">
-                                <i class="fas fa-calendar-alt"></i> Publicado em ${date}
-                            </div>
-                            <div class="document-file">
-                                <i class="fas fa-paperclip"></i> ${doc.fileName} (${sizeInKB} KB)
-                            </div>
-                            <button class="download-btn" onclick="downloadDocument('${doc.id}', '${doc.fileName}')">
-                                <i class="fas fa-download"></i>
-                                Baixar Documento
-                            </button>
-                        </div>
-                    `;
-                });
-                
-                html += '</div>';
-                container.innerHTML = html;
-            }, (error) => {
-                console.error('Erro ao carregar documentos:', error);
-                const container = document.getElementById('documentsContainer');
-                container.innerHTML = `
-                    <div class="no-documents">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Erro ao carregar documentos</h3>
-                        <p>Por favor, tente novamente mais tarde.</p>
-                    </div>
-                `;
-            });
-        }
-    
-        loadDocuments();
-
+    <script>
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const mainNav = document.getElementById('mainNav');
         const dropdownEnsino = document.getElementById('dropdownEnsino');
@@ -566,9 +679,12 @@
             }
         });
 
+        // Mobile dropdown toggle
         if (window.innerWidth <= 768) {
             dropdownEnsino.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A' && e.target.textContent.includes('Ensino')) {
+                e.stopPropagation();
+                const link = this.querySelector('a');
+                if (e.target === link) {
                     e.preventDefault();
                     this.classList.toggle('active');
                 }
