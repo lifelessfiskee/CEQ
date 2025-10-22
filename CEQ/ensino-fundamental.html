@@ -5,24 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ensino Fundamental - Escola Particular Quirinópolis | CEQ</title>
     
-    <!-- SEO Meta Tags -->
     <meta name="description" content="Ensino Fundamental em Quirinópolis - CEQ. Formação completa e consistente do 1º ao 9º ano. Desenvolvimento de pensamento crítico e habilidades socioemocionais.">
     <meta name="keywords" content="ensino fundamental quirinopolis, colegio fundamental quirinopolis, escola fundamental quirinopolis, 1 ao 5 ano quirinopolis, 6 ao 9 ano quirinopolis, CEQ ensino fundamental">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.ceq.edu.br/ensino-fundamental.html">
-    <meta property="og:title" content="Ensino Fundamental - Escola Particular Quirinópolis | CEQ">
-    <meta property="og:description" content="Ensino Fundamental completo em Quirinópolis. Formação sólida com desenvolvimento de competências essenciais para a vida. Anos Iniciais e Finais.">
-    <meta property="og:image" content="https://www.ceq.edu.br/logo.png">
-    <meta property="og:locale" content="pt_BR">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ensino Fundamental - Escola Particular Quirinópolis | CEQ">
-    <meta name="twitter:description" content="Ensino Fundamental completo em Quirinópolis. Formação sólida com desenvolvimento de competências essenciais para a vida.">
-    <meta name="twitter:image" content="https://www.ceq.edu.br/logo.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -62,14 +46,19 @@
             height: 60px;
         }
 
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
             gap: 2rem;
-        }
-
-        nav ul li {
-            position: relative;
         }
 
         nav ul li a {
@@ -79,29 +68,10 @@
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
             display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        nav ul li a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #a8d5ba;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
         }
 
         nav ul li a:hover {
             color: #a8d5ba;
-            text-shadow: 0 0 10px rgba(168, 213, 186, 0.5);
-        }
-
-        nav ul li a:hover::before {
-            width: 80%;
         }
 
         .dropdown {
@@ -117,28 +87,20 @@
             z-index: 1;
             border-radius: 5px;
             top: 100%;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
         }
 
         .dropdown-content a {
             padding: 12px 16px;
             display: block;
             color: white;
-            transition: all 0.3s ease;
         }
 
         .dropdown-content a:hover {
             background-color: #1d5436;
-            padding-left: 24px;
-            box-shadow: inset 4px 0 0 #a8d5ba;
         }
 
         .dropdown:hover .dropdown-content {
             display: block;
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .hero-section {
@@ -146,47 +108,15 @@
             color: white;
             padding: 4rem 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.3; }
         }
 
         .hero-section h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            position: relative;
-            animation: fadeInDown 1s ease;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-section p {
             font-size: 1.2rem;
-            position: relative;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -227,29 +157,11 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             border-left: 5px solid #2d7a4f;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stage-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(45, 122, 79, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .stage-card:hover::before {
-            left: 100%;
         }
 
         .stage-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 24px rgba(45, 122, 79, 0.2);
-            border-left-width: 8px;
         }
 
         .stage-card h3 {
@@ -267,7 +179,6 @@
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
-            transition: all 0.3s ease;
         }
 
         .stage-card ul li:before {
@@ -276,10 +187,6 @@
             left: 0;
             color: #2d7a4f;
             font-weight: bold;
-        }
-
-        .stage-card:hover ul li {
-            padding-left: 2rem;
         }
 
         .competencies {
@@ -309,28 +216,11 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .comp-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(45, 122, 79, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .comp-item:hover::before {
-            left: 100%;
+            transition: all 0.4s ease;
         }
 
         .comp-item:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-10px);
             box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3);
         }
 
@@ -338,13 +228,6 @@
             font-size: 3rem;
             color: #2d7a4f;
             margin-bottom: 1rem;
-            transition: all 0.4s ease;
-        }
-
-        .comp-item:hover i {
-            transform: scale(1.2) rotate(5deg);
-            color: #4a9d6f;
-            filter: drop-shadow(0 4px 8px rgba(45, 122, 79, 0.4));
         }
 
         .comp-item h3 {
@@ -377,26 +260,6 @@
             text-align: center;
             font-weight: 600;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .disc-item::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .disc-item:hover::before {
-            width: 300px;
-            height: 300px;
         }
 
         .disc-item:hover {
@@ -421,36 +284,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-            animation: none;
-        }
-
-        .whatsapp-float::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background-color: #25d366;
-            opacity: 0.6;
-            animation: ripple 2s infinite;
-        }
-
-        @keyframes ripple {
-            0% { transform: scale(1); opacity: 0.6; }
-            100% { transform: scale(1.5); opacity: 0; }
+            transform: scale(1.15);
         }
 
         footer {
@@ -459,21 +297,76 @@
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
-                gap: 1rem;
+                flex-wrap: wrap;
+                padding: 0.5rem 1rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            nav {
+                width: 100%;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 0;
+                padding: 1rem 0;
+            }
+
+            nav ul li a {
+                padding: 0.8rem 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                background-color: #1d5436;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
             }
 
             .hero-section h1 {
                 font-size: 1.8rem;
+            }
+
+            .stages {
+                grid-template-columns: 1fr;
+            }
+
+            .comp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .disc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
             }
         }
     </style>
@@ -482,10 +375,13 @@
     <header>
         <div class="header-container">
             <img src="logo.png" alt="Logo CEQ" class="logo">
-            <nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
                 <ul>
                     <li><a href="index.html">Início</a></li>
-                    <li class="dropdown">
+                    <li class="dropdown" id="dropdownEnsino">
                         <a href="#ensino">Ensino ▾</a>
                         <div class="dropdown-content">
                             <a href="educacao-infantil.html">Educação Infantil</a>
@@ -493,6 +389,7 @@
                             <a href="ensino-medio.html">Ensino Médio</a>
                         </div>
                     </li>
+                    <li><a href="bolsas.html">Bolsas</a></li>
                     <li><a href="index.html#depoimentos">Depoimentos</a></li>
                     <li><a href="index.html#contato">Contato</a></li>
                 </ul>
@@ -601,9 +498,35 @@
     </a>
 
     <footer>
-        <p>&copy; 2025 Cooperativa De Ensino De Quirinópolis (CEQ) - Todos os direitos reservados</p>
-        <p>38 anos educando para a vida 💚</p>
+        <p>&copy; 2025 COOPERATIVA DE ENSINO DE QUIRINÓPOLIS (CEQ) - TODOS OS DIREITOS RESERVADOS</p>
+        <p>38 ANOS EDUCANDO PARA A VIDA 💚</p>
     </footer>
-</body>
 
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const dropdownEnsino = document.getElementById('dropdownEnsino');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        if (window.innerWidth <= 768) {
+            dropdownEnsino.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A' && e.target.textContent.includes('Ensino')) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                }
+            });
+        }
+    </script>
+</body>
 </html>
