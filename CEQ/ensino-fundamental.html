@@ -607,15 +607,15 @@
             }
         });
 
+        // Mobile dropdown toggle - CORRIGIDO
         if (window.innerWidth <= 768) {
-            dropdownEnsino.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A' && e.target.textContent.includes('Ensino')) {
-                    e.preventDefault();
-                    this.classList.toggle('active');
-                }
+            const dropdownLink = dropdownEnsino.querySelector('a');
+            dropdownLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdownEnsino.classList.toggle('active');
             });
         }
     </script>
 </body>
 </html>
-
