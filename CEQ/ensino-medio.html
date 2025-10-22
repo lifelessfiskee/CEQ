@@ -192,8 +192,47 @@
             margin-bottom: 0.5rem;
         }
 
-        .areas {
+        .gallery {
+            padding: 3rem 2rem;
             background-color: #f8f9fa;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .areas {
+            background-color: #fff;
             padding: 3rem 2rem;
             margin: 3rem 0;
         }
@@ -214,7 +253,7 @@
         }
 
         .area-card {
-            background-color: white;
+            background-color: #f8f9fa;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -436,6 +475,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
             .diff-item {
                 flex-direction: column;
                 text-align: center;
@@ -520,37 +563,30 @@
         </div>
     </div>
 
+    <section class="gallery">
+        <h2>Nosso Ensino Médio</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="ensino medio/em1.jpg" alt="Ensino Médio CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="ensino medio/em2.jpg" alt="Ensino Médio CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="ensino medio/em3.jpg" alt="Ensino Médio CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="ensino medio/em4.jpg" alt="Ensino Médio CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="ensino medio/em5.jpg" alt="Ensino Médio CEQ">
+            </div>
+        </div>
+    </section>
+
     <section class="areas">
         <h2>Áreas do Conhecimento</h2>
         <div class="areas-grid">
-            <div class="area-card">
-                <h3>Linguagens e Códigos</h3>
-                <ul>
-                    <li>Língua Portuguesa</li>
-                    <li>Literatura</li>
-                    <li>Língua Inglesa</li>
-                    <li>Artes</li>
-                    <li>Educação Física</li>
-                    <li>Redação</li>
-                </ul>
-            </div>
-            <div class="area-card">
-                <h3>Ciências Humanas</h3>
-                <ul>
-                    <li>História</li>
-                    <li>Geografia</li>
-                    <li>Filosofia</li>
-                    <li>Sociologia</li>
-                </ul>
-            </div>
-            <div class="area-card">
-                <h3>Ciências da Natureza</h3>
-                <ul>
-                    <li>Biologia</li>
-                    <li>Física</li>
-                    <li>Química</li>
-                </ul>
-            </div>
             <div class="area-card">
                 <h3>Matemática</h3>
                 <ul>
@@ -681,3 +717,31 @@
     </script>
 </body>
 </html>
+                <h3>Linguagens e Códigos</h3>
+                <ul>
+                    <li>Língua Portuguesa</li>
+                    <li>Literatura</li>
+                    <li>Língua Inglesa</li>
+                    <li>Artes</li>
+                    <li>Educação Física</li>
+                    <li>Redação</li>
+                </ul>
+            </div>
+            <div class="area-card">
+                <h3>Ciências Humanas</h3>
+                <ul>
+                    <li>História</li>
+                    <li>Geografia</li>
+                    <li>Filosofia</li>
+                    <li>Sociologia</li>
+                </ul>
+            </div>
+            <div class="area-card">
+                <h3>Ciências da Natureza</h3>
+                <ul>
+                    <li>Biologia</li>
+                    <li>Física</li>
+                    <li>Química</li>
+                </ul>
+            </div>
+            <div class="area-card">
