@@ -239,6 +239,45 @@
             color: #2d7a4f;
         }
 
+        .gallery {
+            padding: 3rem 2rem;
+            background-color: #fff;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -332,6 +371,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
@@ -420,6 +463,27 @@
             </div>
         </div>
     </div>
+
+    <section class="gallery">
+        <h2>Nossa Educação Infantil</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="educaçao infantil/fun1.jpg" alt="Educação Infantil CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="educaçao infantil/fun2.jpg" alt="Educação Infantil CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="educaçao infantil/fun3.jpg" alt="Educação Infantil CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="educaçao infantil/fun4.jpg" alt="Educação Infantil CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="educaçao infantil/fun5.jpg" alt="Educação Infantil CEQ">
+            </div>
+        </div>
+    </section>
 
     <section class="activities">
         <h2>Nossas Atividades</h2>
