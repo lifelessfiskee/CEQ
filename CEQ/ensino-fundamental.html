@@ -206,8 +206,47 @@
             font-weight: bold;
         }
 
-        .competencies {
+        .gallery {
+            padding: 3rem 2rem;
             background-color: #f8f9fa;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .competencies {
+            background-color: #fff;
             padding: 3rem 2rem;
             margin: 3rem 0;
         }
@@ -228,7 +267,7 @@
         }
 
         .comp-item {
-            background-color: white;
+            background-color: #f8f9fa;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -382,6 +421,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
@@ -462,6 +505,27 @@
             </div>
         </div>
     </div>
+
+    <section class="gallery">
+        <h2>Nosso Ensino Fundamental</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="ensino fundamental/medalhas1.jpg" alt="Ensino Fundamental CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="ensino fundamental/medalhas2.jpg" alt="Ensino Fundamental CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="ensino fundamental/medalhas3.jpg" alt="Ensino Fundamental CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="ensino fundamental/medalhas4.jpg" alt="Ensino Fundamental CEQ">
+            </div>
+            <div class="gallery-item">
+                <img src="ensino fundamental/medalhas5.jpg" alt="Ensino Fundamental CEQ">
+            </div>
+        </div>
+    </section>
 
     <section class="competencies">
         <h2>Competências Desenvolvidas</h2>
