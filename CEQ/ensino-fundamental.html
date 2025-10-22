@@ -42,8 +42,21 @@
             padding: 0 2rem;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         .logo {
             height: 60px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
         }
 
         .mobile-menu-toggle {
@@ -311,6 +324,10 @@
                 height: 50px;
             }
 
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
             .mobile-menu-toggle {
                 display: block;
             }
@@ -374,7 +391,10 @@
 <body>
     <header>
         <div class="header-container">
-            <img src="logo.png" alt="Logo CEQ" class="logo">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo CEQ" class="logo">
+                <span class="logo-text">CEQ</span>
+            </div>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
             </button>
