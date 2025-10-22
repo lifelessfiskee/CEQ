@@ -512,7 +512,7 @@
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
         import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
-
+    
         // SUAS CREDENCIAIS DO FIREBASE
         const firebaseConfig = {
             apiKey: "AIzaSyAaqIkvYyNWBcV9rMVvIvJ7bEoE9OnWCdI",
@@ -523,12 +523,12 @@
             messagingSenderId: "519180124863",
             appId: "1:519180124863:web:c8c83babad3c39d5563c0a"
         };
-
+    
         // Inicializar Firebase
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
-
-        // Função para download de arquivo Base64
+    
+        // Função para download de arquivo Base64 (APENAS UMA VEZ!)
         function downloadFile(base64Data, fileName) {
             const link = document.createElement('a');
             link.href = base64Data;
@@ -537,7 +537,36 @@
             link.click();
             document.body.removeChild(link);
         }
-
+    
+        // Obter ícone baseado no tipo de arquivo
+        function getFileIcon(fileName) {
+            const extension = fileName.split('.').pop().toLowerCase();
+            switch (extension) {
+                case 'pdf':
+                    return 'fas fa-file-pdf';
+                case 'doc':
+                case 'docx':
+                    return 'fas fa-file-word';
+                case 'jpg':
+                case 'jpeg':
+                case 'png':
+                    return 'fas fa-file-image';
+                default:
+                    return 'fas fa-file-alt';
+            }
+        }
+    
+        // Função global para download
+        window.downloadDocument = function(docId, fileName) {
+            const docRef = ref(database, `bolsas/${docId}`);
+            onValue(docRef, (snapshot) => {
+                const data = snapshot.val();
+                if (data && data.fileData) {
+                    downloadFile(data.fileData, fileName);
+                }
+            }, { onlyOnce: true });
+        };
+    
         // Carregar documentos em tempo real
         function loadDocuments() {
             const documentsRef = ref(database, 'bolsas');
@@ -556,15 +585,15 @@
                     `;
                     return;
                 }
-
+    
                 // Converter para array e ordenar por data
                 const documentsArray = Object.entries(data).map(([key, value]) => ({
                     id: key,
                     ...value
                 }));
-
+    
                 documentsArray.sort((a, b) => b.timestamp - a.timestamp);
-
+    
                 // Renderizar documentos
                 let html = '<div class="documents-grid">';
                 
@@ -610,46 +639,7 @@
                 `;
             });
         }
-
-        // Função global para download
-        window.downloadDocument = function(docId, fileName) {
-            const docRef = ref(database, `bolsas/${docId}`);
-            onValue(docRef, (snapshot) => {
-                const data = snapshot.val();
-                if (data && data.fileData) {
-                    downloadFile(data.fileData, fileName);
-                }
-            }, { onlyOnce: true });
-        };
-
-        // Função auxiliar para download
-        function downloadFile(base64Data, fileName) {
-            const link = document.createElement('a');
-            link.href = base64Data;
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // Obter ícone baseado no tipo de arquivo
-        function getFileIcon(fileName) {
-            const extension = fileName.split('.').pop().toLowerCase();
-            switch (extension) {
-                case 'pdf':
-                    return 'fas fa-file-pdf';
-                case 'doc':
-                case 'docx':
-                    return 'fas fa-file-word';
-                case 'jpg':
-                case 'jpeg':
-                case 'png':
-                    return 'fas fa-file-image';
-                default:
-                    return 'fas fa-file-alt';
-            }
-        }
-
+    
         // Iniciar carregamento
         loadDocuments();
     </script>
