@@ -7,6 +7,7 @@
     
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="shortcut icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
     
     <meta name="description" content="Escola particular em Quirinópolis com 38 anos de tradição. Educação Infantil, Ensino Fundamental e Médio. Cooperativa de Ensino de Quirinópolis - CEQ. Matrículas abertas!">
     <meta name="keywords" content="escola particular quirinopolis, escola quirinopolis, colegio quirinopolis, educacao infantil quirinopolis, ensino fundamental quirinopolis, ensino medio quirinopolis, CEQ, cooperativa ensino quirinopolis, melhor escola quirinopolis">
@@ -467,7 +468,7 @@
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li class="dropdown" id="dropdownEnsino">
-                        <a href="#ensino">Ensino ▾</a>
+                        <a href="javascript:void(0)">Ensino ▾</a>
                         <div class="dropdown-content">
                             <a href="educacao-infantil.html">Educação Infantil</a>
                             <a href="ensino-fundamental.html">Ensino Fundamental</a>
@@ -483,9 +484,9 @@
     </header>
 
     <section class="hero">
-        <h1>UMA ESCOLA PARA CHAMAR DE NOSSA</h1>
+        <h1>Uma escola para chamar de NOSSA! 💚</h1>
         <p class="highlight">38 ANOS EDUCANDO PARA A VIDA</p>
-        <p>Educação Infantil ao Ensino Médio</p>
+        <p>📚 Educação Infantil ao Ensino Médio</p>
     </section>
 
     <div class="container">
@@ -619,7 +620,7 @@
 
     <footer>
         <p>&copy; 2025 COOPERATIVA DE ENSINO DE QUIRINÓPOLIS (CEQ) - TODOS OS DIREITOS RESERVADOS</p>
-        <p>38 ANOS EDUCANDO PARA A VIDA</p>
+        <p>38 ANOS EDUCANDO PARA A VIDA 💚</p>
     </footer>
 
     <script>
@@ -645,9 +646,12 @@
             }
         });
 
+        // Mobile dropdown toggle
         if (window.innerWidth <= 768) {
             dropdownEnsino.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A' && e.target.textContent.includes('Ensino')) {
+                e.stopPropagation();
+                const link = this.querySelector('a');
+                if (e.target === link) {
                     e.preventDefault();
                     this.classList.toggle('active');
                 }
@@ -656,5 +660,3 @@
     </script>
 </body>
 </html>
-
-
