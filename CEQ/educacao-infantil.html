@@ -399,7 +399,7 @@
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li class="dropdown" id="dropdownEnsino">
-                        <a href="#ensino">Ensino ▾</a>
+                        <a href="javascript:void(0)">Ensino ▾</a>
                         <div class="dropdown-content">
                             <a href="educacao-infantil.html">Educação Infantil</a>
                             <a href="ensino-fundamental.html">Ensino Fundamental</a>
@@ -529,7 +529,7 @@
 
     <footer>
         <p>&copy; 2025 COOPERATIVA DE ENSINO DE QUIRINÓPOLIS (CEQ) - TODOS OS DIREITOS RESERVADOS</p>
-        <p>38 ANOS EDUCANDO PARA A VIDA </p>
+        <p>38 ANOS EDUCANDO PARA A VIDA 💚</p>
     </footer>
 
     <script>
@@ -549,15 +549,15 @@
             }
         });
 
+        // Mobile dropdown toggle - CORRIGIDO
         if (window.innerWidth <= 768) {
-            dropdownEnsino.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A' && e.target.textContent.includes('Ensino')) {
-                    e.preventDefault();
-                    this.classList.toggle('active');
-                }
+            const dropdownLink = dropdownEnsino.querySelector('a');
+            dropdownLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdownEnsino.classList.toggle('active');
             });
         }
     </script>
 </body>
 </html>
-
