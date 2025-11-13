@@ -155,15 +155,17 @@
 
         .hero-image {
             flex: 0 0 auto;
-            max-width: 400px;
+            max-width: 300px; /* TAMANHO DA IMAGEM - Altere aqui para aumentar/diminuir */
+            width: 100%;
         }
 
         .hero-image img {
-            width: 100%;
+            width: 50%; /* PORCENTAGEM - Altere aqui! 50% = metade, 70% = maior, 30% = menor */
             height: auto;
             display: block;
             position: relative;
             bottom: -4rem;
+            margin-left: auto; /* Mantém alinhada à direita */
         }
 
         .container {
@@ -403,11 +405,13 @@
             }
 
             .hero-image {
-                max-width: 300px;
+                max-width: 250px; /* TAMANHO MOBILE - Altere aqui */
             }
 
             .hero-image img {
+                width: 60%; /* PORCENTAGEM MOBILE - Altere aqui! */
                 bottom: -2rem;
+                margin: 0 auto; /* Centraliza no mobile */
             }
 
             .features-grid {
