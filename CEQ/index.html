@@ -152,8 +152,14 @@
         }
 
         .about {
-            text-align: center;
             margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-content {
+            flex: 1;
         }
 
         .about h2 {
@@ -164,9 +170,19 @@
 
         .about p {
             font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto;
             line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 0 0 auto;
+            max-width: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
 
         .features {
@@ -446,6 +462,15 @@
                 padding: 2rem 1rem;
             }
 
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                max-width: 300px;
+            }
+
             .features {
                 grid-template-columns: 1fr;
             }
@@ -510,12 +535,17 @@
 
     <div class="container">
         <section class="about">
-            <h2>Bem-vindo à CEQ</h2>
-            <p>
-                A Cooperativa De Ensino De Quirinópolis é uma instituição comprometida com a excelência educacional há 38 anos. 
-                Oferecemos educação de qualidade desde a Educação Infantil até o Ensino Médio, preparando nossos alunos para os 
-                desafios da vida com valores sólidos, conhecimento amplo e desenvolvimento integral.
-            </p>
+            <div class="about-content">
+                <h2>Bem-vindo à CEQ</h2>
+                <p>
+                    A Cooperativa De Ensino De Quirinópolis é uma instituição comprometida com a excelência educacional há 38 anos. 
+                    Oferecemos educação de qualidade desde a Educação Infantil até o Ensino Médio, preparando nossos alunos para os 
+                    desafios da vida com valores sólidos, conhecimento amplo e desenvolvimento integral.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="../Imagens/flyer.png" alt="Flyer CEQ">
+            </div>
         </section>
 
         <div class="features">
