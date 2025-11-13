@@ -123,7 +123,7 @@
         .hero-section {
             background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 2rem 2rem 4rem 2rem; /* ESPAÇAMENTO COM HEADER - Diminui o topo (era 4rem, agora 2rem) */
             position: relative;
             overflow: visible;
         }
@@ -155,17 +155,18 @@
 
         .hero-image {
             flex: 0 0 auto;
-            max-width: 500px; /* TAMANHO DA IMAGEM - Altere aqui para aumentar/diminuir */
+            max-width: 300px;
             width: 100%;
+            margin-right: 50px; /* ESPAÇAMENTO DA BORDA DIREITA - Aumente para mais espaço */
         }
 
         .hero-image img {
-            width: 80%; /* PORCENTAGEM - Altere aqui! 50% = metade, 70% = maior, 30% = menor */
+            width: 50%;
             height: auto;
             display: block;
             position: relative;
             bottom: -4rem;
-            margin-left: auto; /* Mantém alinhada à direita */
+            margin-left: auto;
         }
 
         .container {
@@ -619,5 +620,3 @@
     </script>
 </body>
 </html>
-
-
