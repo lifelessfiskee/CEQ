@@ -123,8 +123,25 @@
         .hero-section {
             background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
             color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+            padding: 0.5rem 2rem 4rem 2rem;
+            position: relative;
+            overflow: visible;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
         }
 
         .hero-section h1 {
@@ -134,6 +151,22 @@
 
         .hero-section p {
             font-size: 1.2rem;
+        }
+
+        .hero-image {
+            flex: 0 0 auto;
+            max-width: 500px;
+            width: 100%;
+            margin-right: 50px;
+        }
+
+        .hero-image img {
+            width: 50%;
+            height: auto;
+            display: block;
+            position: relative;
+            bottom: -4rem;
+            margin-left: auto;
         }
 
         .container {
@@ -405,8 +438,31 @@
                 display: block;
             }
 
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
             .hero-section h1 {
                 font-size: 1.8rem;
+            }
+
+            .hero-image {
+                max-width: 250px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero-image img {
+                width: 60%;
+                bottom: -4rem;
+                margin: 0;
             }
 
             .stages {
@@ -465,8 +521,15 @@
     </header>
 
     <section class="hero-section">
-        <h1>Ensino Fundamental</h1>
-        <p>Construindo alicerces sólidos para o conhecimento e formação integral</p>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Ensino Fundamental</h1>
+                <p>Construindo alicerces sólidos para o conhecimento e formação integral</p>
+            </div>
+            <div class="hero-image">
+                <img src="Imagens/adolescentes.png" alt="Estudantes do Ensino Fundamental CEQ">
+            </div>
+        </div>
     </section>
 
     <div class="container">
@@ -587,7 +650,7 @@
 
     <footer>
         <p>&copy; 2025 COOPERATIVA DE ENSINO DE QUIRINÓPOLIS (CEQ) - TODOS OS DIREITOS RESERVADOS</p>
-        <p>38 ANOS EDUCANDO PARA A VIDA </p>
+        <p>38 ANOS EDUCANDO PARA A VIDA 💚</p>
     </footer>
 
     <script>
@@ -607,7 +670,6 @@
             }
         });
 
-        // Mobile dropdown toggle - CORRIGIDO
         if (window.innerWidth <= 768) {
             const dropdownLink = dropdownEnsino.querySelector('a');
             dropdownLink.addEventListener('click', function(e) {
