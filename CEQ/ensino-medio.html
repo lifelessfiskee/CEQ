@@ -143,21 +143,34 @@
         }
 
         .intro {
-            text-align: center;
             margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
-        .intro h2 {
+        .intro-text h2 {
             color: #2d7a4f;
             font-size: 2rem;
             margin-bottom: 1rem;
         }
 
-        .intro p {
+        .intro-text p {
             font-size: 1.1rem;
             line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
+        }
+
+        .intro-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
         }
 
         .highlights {
@@ -463,6 +476,19 @@
                 font-size: 1.8rem;
             }
 
+            .intro {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .intro-text {
+                text-align: center;
+            }
+
+            .intro-image img {
+                max-width: 100%;
+            }
+
             .highlights {
                 grid-template-columns: 1fr;
             }
@@ -530,13 +556,18 @@
 
     <div class="container">
         <section class="intro">
-            <h2>Excelência na Preparação para o Futuro</h2>
-            <p>
-                O Ensino Médio da CEQ oferece uma formação completa e de qualidade, preparando nossos alunos 
-                para os desafios do ENEM, vestibulares e para a vida universitária. Com uma metodologia moderna 
-                e professores altamente qualificados, desenvolvemos o pensamento crítico, a autonomia e as 
-                competências necessárias para o sucesso acadêmico e profissional dos nossos estudantes.
-            </p>
+            <div class="intro-text">
+                <h2>Excelência na Preparação para o Futuro</h2>
+                <p>
+                    O Ensino Médio da CEQ oferece uma formação completa e de qualidade, preparando nossos alunos 
+                    para os desafios do ENEM, vestibulares e para a vida universitária. Com uma metodologia moderna 
+                    e professores altamente qualificados, desenvolvemos o pensamento crítico, a autonomia e as 
+                    competências necessárias para o sucesso acadêmico e profissional dos nossos estudantes.
+                </p>
+            </div>
+            <div class="intro-image">
+                <img src="Imagens/adolescentes.png" alt="Adolescentes estudando - Ensino Médio CEQ">
+            </div>
         </section>
 
         <div class="highlights">
@@ -734,7 +765,7 @@
             }
         });
 
-        // Mobile dropdown toggle - CORRIGIDO
+        // Mobile dropdown toggle
         if (window.innerWidth <= 768) {
             const dropdownLink = dropdownEnsino.querySelector('a');
             dropdownLink.addEventListener('click', function(e) {
