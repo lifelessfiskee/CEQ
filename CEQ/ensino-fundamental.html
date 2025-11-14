@@ -123,9 +123,8 @@
         .hero-section {
             background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
             color: white;
-            padding: 0.5rem 2rem 4rem 2rem;
+            padding: 3rem 2rem;
             position: relative;
-            overflow: visible;
         }
 
         .hero-content {
@@ -133,15 +132,7 @@
             z-index: 2;
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-        }
-
-        .hero-text {
-            flex: 1;
-            text-align: left;
+            text-align: center;
         }
 
         .hero-section h1 {
@@ -153,22 +144,6 @@
             font-size: 1.2rem;
         }
 
-        .hero-image {
-            flex: 0 0 auto;
-            max-width: 500px;
-            width: 100%;
-            margin-right: 50px;
-        }
-
-        .hero-image img {
-            width: 50%;
-            height: auto;
-            display: block;
-            position: relative;
-            bottom: -4rem;
-            margin-left: auto;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -176,8 +151,25 @@
         }
 
         .intro {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
             margin-bottom: 3rem;
+        }
+
+        .intro-image {
+            flex: 0 0 300px;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .intro-text {
+            flex: 1;
         }
 
         .intro h2 {
@@ -189,8 +181,6 @@
         .intro p {
             font-size: 1.1rem;
             line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .stages {
@@ -438,31 +428,19 @@
                 display: block;
             }
 
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .hero-text {
-                text-align: center;
-            }
-
             .hero-section h1 {
                 font-size: 1.8rem;
             }
 
-            .hero-image {
-                max-width: 250px;
-                margin: 0 auto;
-                display: flex;
-                justify-content: center;
+            .intro {
+                flex-direction: column;
+                gap: 2rem;
             }
 
-            .hero-image img {
-                width: 60%;
-                bottom: -4rem;
-                margin: 0;
+            .intro-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
             }
 
             .stages {
@@ -522,25 +500,25 @@
 
     <section class="hero-section">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1>Ensino Fundamental</h1>
-                <p>Construindo alicerces sólidos para o conhecimento e formação integral</p>
-            </div>
-            <div class="hero-image">
-                <img src="Imagens/adolescentes.png" alt="Estudantes do Ensino Fundamental CEQ">
-            </div>
+            <h1>Ensino Fundamental</h1>
+            <p>Construindo alicerces sólidos para o conhecimento e formação integral</p>
         </div>
     </section>
 
     <div class="container">
         <section class="intro">
-            <h2>Formação Completa e Consistente</h2>
-            <p>
-                O Ensino Fundamental da CEQ oferece uma educação que desenvolve competências essenciais para a 
-                vida. Nossos alunos constroem uma base sólida de conhecimentos, desenvolvem pensamento crítico, 
-                habilidades socioemocionais e valores fundamentais que os preparam para os desafios futuros. 
-                Trabalhamos com dedicação nos Anos Iniciais e Finais, respeitando as características de cada faixa etária.
-            </p>
+            <div class="intro-image">
+                <img src="Imagens/adolescentes.png" alt="Estudantes do Ensino Fundamental CEQ">
+            </div>
+            <div class="intro-text">
+                <h2>Formação Completa e Consistente</h2>
+                <p>
+                    O Ensino Fundamental da CEQ oferece uma educação que desenvolve competências essenciais para a 
+                    vida. Nossos alunos constroem uma base sólida de conhecimentos, desenvolvem pensamento crítico, 
+                    habilidades socioemocionais e valores fundamentais que os preparam para os desafios futuros. 
+                    Trabalhamos com dedicação nos Anos Iniciais e Finais, respeitando as características de cada faixa etária.
+                </p>
+            </div>
         </section>
 
         <div class="stages">
@@ -650,7 +628,7 @@
 
     <footer>
         <p>&copy; 2025 COOPERATIVA DE ENSINO DE QUIRINÓPOLIS (CEQ) - TODOS OS DIREITOS RESERVADOS</p>
-        <p>38 ANOS EDUCANDO PARA A VIDA 💚</p>
+        <p>38 ANOS EDUCANDO PARA A VIDA</p>
     </footer>
 
     <script>
