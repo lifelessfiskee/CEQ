@@ -123,9 +123,8 @@
         .hero-section {
             background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
             color: white;
-            padding: 0.5rem 2rem 4rem 2rem;
+            padding: 3rem 2rem;
             position: relative;
-            overflow: visible;
         }
 
         .hero-content {
@@ -133,15 +132,7 @@
             z-index: 2;
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-        }
-
-        .hero-text {
-            flex: 1;
-            text-align: left;
+            text-align: center;
         }
 
         .hero-section h1 {
@@ -153,22 +144,6 @@
             font-size: 1.2rem;
         }
 
-        .hero-image {
-            flex: 0 0 auto;
-            max-width: 500px;
-            width: 100%;
-            margin-right: 50px;
-        }
-
-        .hero-image img {
-            width: 50%;
-            height: auto;
-            display: block;
-            position: relative;
-            bottom: -4rem;
-            margin-left: auto;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -176,8 +151,23 @@
         }
 
         .intro {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
             margin-bottom: 3rem;
+        }
+
+        .intro-text {
+            flex: 1;
+        }
+
+        .intro-image {
+            flex: 0 0 300px;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
         }
 
         .intro h2 {
@@ -189,8 +179,6 @@
         .intro p {
             font-size: 1.1rem;
             line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .highlights {
@@ -492,31 +480,19 @@
                 display: block;
             }
 
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-
-            .hero-text {
-                text-align: center;
-            }
-
             .hero-section h1 {
                 font-size: 1.8rem;
             }
 
-            .hero-image {
-                max-width: 250px;
-                margin: 0 auto;
-                display: flex;
-                justify-content: center;
+            .intro {
+                flex-direction: column;
+                gap: 2rem;
             }
 
-            .hero-image img {
-                width: 60%;
-                bottom: -4rem;
-                margin: 0;
+            .intro-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
             }
 
             .highlights {
@@ -581,25 +557,25 @@
 
     <section class="hero-section">
         <div class="hero-content">
-            <div class="hero-text">
-                <h1>Ensino Médio</h1>
-                <p>Preparando jovens para o futuro acadêmico e profissional</p>
-            </div>
-            <div class="hero-image">
-                <img src="../Imagens/estudando2.png" alt="Adolescentes estudando - Ensino Médio CEQ">
-            </div>
+            <h1>Ensino Médio</h1>
+            <p>Preparando jovens para o futuro acadêmico e profissional</p>
         </div>
     </section>
 
     <div class="container">
         <section class="intro">
-            <h2>Excelência na Preparação para o Futuro</h2>
-            <p>
-                O Ensino Médio da CEQ oferece uma formação completa e de qualidade, preparando nossos alunos 
-                para os desafios do ENEM, vestibulares e para a vida universitária. Com uma metodologia moderna 
-                e professores altamente qualificados, desenvolvemos o pensamento crítico, a autonomia e as 
-                competências necessárias para o sucesso acadêmico e profissional dos nossos estudantes.
-            </p>
+            <div class="intro-text">
+                <h2>Excelência na Preparação para o Futuro</h2>
+                <p>
+                    O Ensino Médio da CEQ oferece uma formação completa e de qualidade, preparando nossos alunos 
+                    para os desafios do ENEM, vestibulares e para a vida universitária. Com uma metodologia moderna 
+                    e professores altamente qualificados, desenvolvemos o pensamento crítico, a autonomia e as 
+                    competências necessárias para o sucesso acadêmico e profissional dos nossos estudantes.
+                </p>
+            </div>
+            <div class="intro-image">
+                <img src="Imagens/estudando.png" alt="Estudantes do Ensino Médio CEQ">
+            </div>
         </section>
 
         <div class="highlights">
@@ -805,5 +781,3 @@
     </script>
 </body>
 </html>
-
-
