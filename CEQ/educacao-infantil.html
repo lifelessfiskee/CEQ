@@ -406,13 +406,16 @@
             }
 
             .hero-image {
-                max-width: 250px; /* TAMANHO MOBILE - Altere aqui */
+                max-width: 250px;
+                margin: 0 auto; /* ← ADICIONEI: Centraliza o container */
+                display: flex;    /* ← ADICIONEI: Para centralizar melhor */
+                justify-content: center; /* ← ADICIONEI: Para centralizar melhor */
             }
-
+        
             .hero-image img {
-                width: 60%; /* PORCENTAGEM MOBILE - Altere aqui! */
-                bottom: -2rem;
-                margin: 0 auto; /* Centraliza no mobile */
+                width: 60%;
+                bottom: -4rem;  /* ← MUDEI: Era -2rem, agora é -4rem para grudar mais */
+                margin: 0;      /* ← MUDEI: Era "0 auto", agora é só "0" */
             }
 
             .features-grid {
@@ -620,6 +623,7 @@
     </script>
 </body>
 </html>
+
 
 
 
