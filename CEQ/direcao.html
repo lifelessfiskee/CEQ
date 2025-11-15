@@ -1,1 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direção - CEQ | Cooperativa de Ensino Quirinópolis</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    
+    <meta name="description" content="Conheça a direção da CEQ - Cooperativa de Ensino de Quirinópolis. Liderança comprometida com a excelência educacional há 38 anos.">
+    <meta name="keywords" content="diretora CEQ, direção escola quirinopolis, liderança educacional quirinopolis">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2d7a4f;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            color: #a8d5ba;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #246b43;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%;
+        }
+
+        .dropdown-content a {
+            padding: 12px 16px;
+            display: block;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #1d5436;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .director-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .director-photo {
+            text-align: center;
+        }
+
+        .director-photo img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(45, 122, 79, 0.3);
+        }
+
+        .director-info h2 {
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .director-info h3 {
+            color: #4a9d6f;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .director-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .achievements {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .achievements h2 {
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #2d7a4f;
+            transition: all 0.4s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.2);
+        }
+
+        .achievement-card i {
+            font-size: 2.5rem;
+            color: #2d7a4f;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-card h3 {
+            color: #2d7a4f;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .achievement-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .values-section {
+            margin-bottom: 3rem;
+        }
+
+        .values-section h2 {
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item {
+            background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.4);
+        }
+
+        .value-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            background-color: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+        }
+
+        .timeline h2 {
+            color: #2d7a4f;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .timeline-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid #2d7a4f;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 12px rgba(45, 122, 79, 0.2);
+        }
+
+        .timeline-year {
+            color: #2d7a4f;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .quote-section i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+        }
+
+        footer {
+            background-color: #2d7a4f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                padding: 0.5rem 1rem;
+            }
+
+            .logo {
+                height: 50px;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            nav {
+                width: 100%;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+            }
+
+            nav ul li a {
+                padding: 0.8rem 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                background-color: #1d5436;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .director-intro {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-text {
+                font-size: 1.1rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo CEQ" class="logo">
+                <span class="logo-text">CEQ</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li class="dropdown" id="dropdownEnsino">
+                        <a href="javascript:void(0)">Ensino ▾</a>
+                        <div class="dropdown-content">
+                            <a href="educacao-infantil.html">Educação Infantil</a>
+                            <a href="ensino-fundamental.html">Ensino Fundamental</a>
+                            <a href="ensino-medio.html">Ensino Médio</a>
+                        </div>
+                    </li>
+                    <li><a href="bolsas.html">Bolsas</a></li>
+                    <li><a href="index.html#depoimentos">Depoimentos</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <h1>Direção</h1>
+        <p>Liderança comprometida com a excelência educacional</p>
+    </section>
+
+    <div class="container">
+        <section class="director-intro">
+            <div class="director-photo">
+                <img src="Imagens/diretora.png" alt="Diretora da CEQ">
+            </div>
+            <div class="director-info">
+                <h2>Nossa Diretora</h2>
+                <h3>Liderança, Dedicação e Visão</h3>
+                <p>
+                    Com uma trajetória marcada pela paixão pela educação e pelo compromisso com a excelência, 
+                    nossa diretora lidera a CEQ com visão estratégica e coração dedicado ao desenvolvimento 
+                    integral de cada estudante.
+                </p>
+                <p>
+                    Ao longo de sua gestão, tem sido fundamental na consolidação da CEQ como referência em 
+                    educação de qualidade em Quirinópolis, sempre priorizando a formação humana, acadêmica 
+                    e o bem-estar de toda a comunidade escolar.
+                </p>
+            </div>
+        </section>
+
+        <section class="achievements">
+            <h2><i class="fas fa-star"></i> Realizações e Conquistas</h2>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Modernização da Infraestrutura</h3>
+                    <p>
+                        Liderou a ampliação e modernização das instalações da escola, criando espaços 
+                        mais adequados e acolhedores para o aprendizado.
+                    </p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Capacitação de Equipe</h3>
+                    <p>
+                        Implementou programas contínuos de formação para professores e colaboradores, 
+                        garantindo sempre o melhor para os alunos.
+                    </p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Tecnologia Educacional</h3>
+                    <p>
+                        Introduziu recursos tecnológicos modernos no processo de ensino-aprendizagem, 
+                        preparando os alunos para o futuro digital.
+                    </p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Educação Socioemocional</h3>
+                    <p>
+                        Priorizou o desenvolvimento de competências socioemocionais, cuidando do 
+                        bem-estar integral dos estudantes.
+                    </p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Parceria com Famílias</h3>
+                    <p>
+                        Fortaleceu a relação escola-família, criando canais efetivos de comunicação 
+                        e participação ativa dos pais.
+                    </p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Resultados Acadêmicos</h3>
+                    <p>
+                        Elevou significativamente os índices de aprovação e o desempenho dos alunos 
+                        em avaliações e vestibulares.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>Valores que Norteiam Nossa Gestão</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Inovação</h3>
+                    <p>Busca constante por novas metodologias e práticas educacionais</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Ética</h3>
+                    <p>Transparência e responsabilidade em todas as ações</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Humanização</h3>
+                    <p>Cuidado e atenção individual a cada membro da comunidade</p>
+                </div>
+                <div class="value-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Excelência</h3>
+                    <p>Compromisso com a qualidade em todos os processos</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="quote-section">
+        <i class="fas fa-quote-left"></i>
+        <p class="quote-text">
+            "Acredito que a educação transforma vidas e constrói futuros. Cada estudante que passa pela CEQ 
+            carrega consigo não apenas conhecimento, mas valores, sonhos e a certeza de que é capaz de 
+            alcançar seus objetivos. É uma honra fazer parte dessa jornada!"
+        </p>
+    </section>
+
+    <div class="container">
+        <section class="timeline">
+            <h2>Trajetória na CEQ</h2>
+            <div class="timeline-content">
+                <div class="timeline-item">
+                    <div class="timeline-year">🌱 Início da Gestão</div>
+                    <p class="timeline-text">
+                        Assumiu a direção da CEQ com o compromisso de fortalecer a tradição de 
+                        excelência e inovar no processo educacional.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">📚 Reformulação Pedagógica</div>
+                    <p class="timeline-text">
+                        Implementou novos projetos pedagógicos alinhados com as demandas da educação 
+                        contemporânea e as necessidades dos estudantes.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">🏗️ Expansão e Melhorias</div>
+                    <p class="timeline-text">
+                        Liderou obras de ampliação, criando novos espaços de aprendizagem e áreas 
+                        de convivência para a comunidade escolar.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">🎯 Resultados Consolidados</div>
+                    <p class="timeline-text">
+                        A gestão tem colhido frutos notáveis com alunos aprovados em universidades 
+                        de prestígio e o reconhecimento da comunidade.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">💚 Presente e Futuro</div>
+                    <p class="timeline-text">
+                        Continua trabalhando incansavelmente para que a CEQ permaneça como referência 
+                        em educação de qualidade, sempre evoluindo e se adaptando.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <a href="https://wa.me/556436511246" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2025 COOPERATIVA DE ENSINO DE QUIRINÓPOLIS (CEQ) - TODOS OS DIREITOS RESERVADOS</p>
+        <p>38 ANOS EDUCANDO PARA A VIDA 💚</p>
+    </footer>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const dropdownEnsino = document.getElementById('dropdownEnsino');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Mobile dropdown toggle
+        if (window.innerWidth <= 768) {
+            const dropdownLink = dropdownEnsino.querySelector('a');
+            dropdownLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdownEnsino.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
