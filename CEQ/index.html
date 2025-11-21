@@ -361,27 +361,43 @@
             border-radius: 10px;
         }
 
-        .whatsapp-float {
+        /* Botões flutuantes de redes sociais */
+        .social-float {
             position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .social-float a {
             width: 60px;
             height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
             border-radius: 50px;
             text-align: center;
             font-size: 30px;
             box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            z-index: 999;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
+            transition: transform 0.3s ease;
         }
 
-        .whatsapp-float:hover {
+        .social-float a:hover {
             transform: scale(1.15);
+        }
+
+        .instagram-float {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #FFF;
+        }
+
+        .whatsapp-float {
+            background-color: #25d366;
+            color: #FFF;
         }
 
         footer {
@@ -475,11 +491,15 @@
                 margin: 2rem auto;
             }
 
-            .whatsapp-float {
+            .social-float {
+                right: 20px;
+                bottom: 20px;
+                gap: 10px;
+            }
+
+            .social-float a {
                 width: 50px;
                 height: 50px;
-                bottom: 20px;
-                right: 20px;
                 font-size: 24px;
             }
         }
@@ -654,9 +674,15 @@
         </div>
     </section>
 
-    <a href="https://wa.me/556436511246" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Botões flutuantes de redes sociais -->
+    <div class="social-float">
+        <a href="https://www.instagram.com/cequirinopolis?igsh=MXdpeWY5aDhnZnVjZQ==" class="instagram-float" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/556436511246" class="whatsapp-float" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <footer>
         <p>&copy; 2025 COOPERATIVA DE ENSINO DE QUIRINÓPOLIS (CEQ) - TODOS OS DIREITOS RESERVADOS</p>
@@ -686,7 +712,6 @@
             }
         });
 
-        // Mobile dropdown toggle
         if (window.innerWidth <= 768) {
             dropdownEnsino.addEventListener('click', function(e) {
                 e.stopPropagation();
