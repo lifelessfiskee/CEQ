@@ -14,456 +14,88 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #ffffff; color: #333; line-height: 1.6; }
+        header { background-color: #2d7a4f; color: white; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo-container { display: flex; align-items: center; gap: 1rem; }
+        .logo { height: 60px; }
+        .logo-text { font-size: 2rem; font-weight: bold; color: white; letter-spacing: 2px; }
+        .mobile-menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; transition: all 0.3s ease; padding: 0.5rem 1rem; display: block; }
+        nav ul li a:hover { color: #a8d5ba; }
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; background-color: #246b43; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1; border-radius: 5px; top: 100%; }
+        .dropdown-content a { padding: 12px 16px; display: block; color: white; }
+        .dropdown-content a:hover { background-color: #1d5436; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .hero-section { background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%); color: white; padding: 3rem 2rem; position: relative; }
+        .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .hero-section h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero-section p { font-size: 1.2rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .intro { display: flex; align-items: center; gap: 3rem; margin-bottom: 3rem; }
+        .intro-image { flex: 0 0 300px; }
+        .intro-image img { width: 100%; height: auto; }
+        .intro-text { flex: 1; }
+        .intro h2 { color: #2d7a4f; font-size: 2rem; margin-bottom: 1rem; }
+        .intro p { font-size: 1.1rem; line-height: 1.8; }
+        .stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .stage-card { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 5px solid #2d7a4f; transition: all 0.4s ease; }
+        .stage-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(45, 122, 79, 0.2); }
+        .stage-card h3 { color: #2d7a4f; font-size: 1.5rem; margin-bottom: 1rem; }
+        .stage-card ul { list-style: none; padding-left: 0; }
+        .stage-card ul li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
+        .stage-card ul li:before { content: "✓"; position: absolute; left: 0; color: #2d7a4f; font-weight: bold; }
+        .gallery { padding: 3rem 2rem; background-color: #f8f9fa; }
+        .gallery h2 { text-align: center; color: #2d7a4f; font-size: 2rem; margin-bottom: 2rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+        .gallery-item { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.4s ease; }
+        .gallery-item:hover { transform: translateY(-10px); box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3); }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .competencies { background-color: #fff; padding: 3rem 2rem; margin: 3rem 0; }
+        .competencies h2 { text-align: center; color: #2d7a4f; font-size: 2rem; margin-bottom: 2rem; }
+        .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .comp-item { background-color: #f8f9fa; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; transition: all 0.4s ease; }
+        .comp-item:hover { transform: translateY(-10px); box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3); }
+        .comp-item i { font-size: 3rem; color: #2d7a4f; margin-bottom: 1rem; }
+        .comp-item h3 { color: #2d7a4f; margin-bottom: 0.5rem; }
+        .disciplines { margin: 3rem 0; }
+        .disciplines h2 { text-align: center; color: #2d7a4f; font-size: 2rem; margin-bottom: 2rem; }
+        .disc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .disc-item { background-color: #2d7a4f; color: white; padding: 1.5rem; border-radius: 8px; text-align: center; font-weight: 600; transition: all 0.4s ease; }
+        .disc-item:hover { transform: scale(1.08); background-color: #246b43; box-shadow: 0 8px 16px rgba(45, 122, 79, 0.4); }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffffff;
-            color: #333;
-            line-height: 1.6;
-        }
+        /* Botões flutuantes de redes sociais */
+        .social-float { position: fixed; right: 30px; bottom: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+        .social-float a { width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease; }
+        .social-float a:hover { transform: scale(1.15); }
+        .instagram-float { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #FFF; }
+        .whatsapp-float { background-color: #25d366; color: #FFF; }
 
-        header {
-            background-color: #2d7a4f;
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo {
-            height: 60px;
-        }
-
-        .logo-text {
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-            letter-spacing: 2px;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            display: block;
-        }
-
-        nav ul li a:hover {
-            color: #a8d5ba;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #246b43;
-            min-width: 220px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 5px;
-            top: 100%;
-        }
-
-        .dropdown-content a {
-            padding: 12px 16px;
-            display: block;
-            color: white;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #1d5436;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, #2d7a4f 0%, #4a9d6f 100%);
-            color: white;
-            padding: 3rem 2rem;
-            position: relative;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero-section h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-section p {
-            font-size: 1.2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .intro {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .intro-image {
-            flex: 0 0 300px;
-        }
-
-        .intro-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .intro-text {
-            flex: 1;
-        }
-
-        .intro h2 {
-            color: #2d7a4f;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .intro p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .stages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stage-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-left: 5px solid #2d7a4f;
-            transition: all 0.4s ease;
-        }
-
-        .stage-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.2);
-        }
-
-        .stage-card h3 {
-            color: #2d7a4f;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .stage-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .stage-card ul li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .stage-card ul li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #2d7a4f;
-            font-weight: bold;
-        }
-
-        .gallery {
-            padding: 3rem 2rem;
-            background-color: #f8f9fa;
-        }
-
-        .gallery h2 {
-            text-align: center;
-            color: #2d7a4f;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .competencies {
-            background-color: #fff;
-            padding: 3rem 2rem;
-            margin: 3rem 0;
-        }
-
-        .competencies h2 {
-            text-align: center;
-            color: #2d7a4f;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .comp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .comp-item {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-
-        .comp-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(45, 122, 79, 0.3);
-        }
-
-        .comp-item i {
-            font-size: 3rem;
-            color: #2d7a4f;
-            margin-bottom: 1rem;
-        }
-
-        .comp-item h3 {
-            color: #2d7a4f;
-            margin-bottom: 0.5rem;
-        }
-
-        .disciplines {
-            margin: 3rem 0;
-        }
-
-        .disciplines h2 {
-            text-align: center;
-            color: #2d7a4f;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .disc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .disc-item {
-            background-color: #2d7a4f;
-            color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            transition: all 0.4s ease;
-        }
-
-        .disc-item:hover {
-            transform: scale(1.08);
-            background-color: #246b43;
-            box-shadow: 0 8px 16px rgba(45, 122, 79, 0.4);
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.15);
-        }
-
-        footer {
-            background-color: #2d7a4f;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        footer { background-color: #2d7a4f; color: white; text-align: center; padding: 2rem; margin-top: 3rem; text-transform: uppercase; letter-spacing: 1px; }
 
         @media (max-width: 768px) {
-            .header-container {
-                flex-wrap: wrap;
-                padding: 0.5rem 1rem;
-            }
-
-            .logo {
-                height: 50px;
-            }
-
-            .logo-text {
-                font-size: 1.5rem;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            nav {
-                width: 100%;
-                display: none;
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 0;
-                padding: 1rem 0;
-            }
-
-            nav ul li a {
-                padding: 0.8rem 1rem;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-
-            .dropdown-content {
-                position: static;
-                display: none;
-                background-color: #1d5436;
-            }
-
-            .dropdown.active .dropdown-content {
-                display: block;
-            }
-
-            .hero-section h1 {
-                font-size: 1.8rem;
-            }
-
-            .intro {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .intro-image {
-                flex: 0 0 auto;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .stages {
-                grid-template-columns: 1fr;
-            }
-
-            .comp-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .disc-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 24px;
-            }
+            .header-container { flex-wrap: wrap; padding: 0.5rem 1rem; }
+            .logo { height: 50px; }
+            .logo-text { font-size: 1.5rem; }
+            .mobile-menu-toggle { display: block; }
+            nav { width: 100%; display: none; }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; gap: 0; padding: 1rem 0; }
+            nav ul li a { padding: 0.8rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .dropdown-content { position: static; display: none; background-color: #1d5436; }
+            .dropdown.active .dropdown-content { display: block; }
+            .hero-section h1 { font-size: 1.8rem; }
+            .intro { flex-direction: column; gap: 2rem; }
+            .intro-image { flex: 0 0 auto; width: 100%; max-width: 300px; }
+            .stages { grid-template-columns: 1fr; }
+            .comp-grid { grid-template-columns: 1fr; }
+            .disc-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .social-float { right: 20px; bottom: 20px; gap: 10px; }
+            .social-float a { width: 50px; height: 50px; font-size: 24px; }
         }
     </style>
 </head>
@@ -474,9 +106,7 @@
                 <img src="logo.png" alt="Logo CEQ" class="logo">
                 <span class="logo-text">CEQ</span>
             </div>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
             <nav id="mainNav">
                 <ul>
                     <li><a href="index.html">Início</a></li>
@@ -511,37 +141,18 @@
             </div>
             <div class="intro-text">
                 <h2>Formação Completa e Consistente</h2>
-                <p>
-                    O Ensino Fundamental da CEQ oferece uma educação que desenvolve competências essenciais para a 
-                    vida. Nossos alunos constroem uma base sólida de conhecimentos, desenvolvem pensamento crítico, 
-                    habilidades socioemocionais e valores fundamentais que os preparam para os desafios futuros. 
-                    Trabalhamos com dedicação nos Anos Iniciais e Finais, respeitando as características de cada faixa etária.
-                </p>
+                <p>O Ensino Fundamental da CEQ oferece uma educação que desenvolve competências essenciais para a vida. Nossos alunos constroem uma base sólida de conhecimentos, desenvolvem pensamento crítico, habilidades socioemocionais e valores fundamentais que os preparam para os desafios futuros. Trabalhamos com dedicação nos Anos Iniciais e Finais, respeitando as características de cada faixa etária.</p>
             </div>
         </section>
 
         <div class="stages">
             <div class="stage-card">
                 <h3>Anos Iniciais (1º ao 5º ano)</h3>
-                <ul>
-                    <li>Alfabetização e letramento</li>
-                    <li>Desenvolvimento do raciocínio lógico-matemático</li>
-                    <li>Introdução às ciências naturais e sociais</li>
-                    <li>Estímulo à leitura e escrita criativa</li>
-                    <li>Desenvolvimento da autonomia</li>
-                    <li>Educação socioemocional</li>
-                </ul>
+                <ul><li>Alfabetização e letramento</li><li>Desenvolvimento do raciocínio lógico-matemático</li><li>Introdução às ciências naturais e sociais</li><li>Estímulo à leitura e escrita criativa</li><li>Desenvolvimento da autonomia</li><li>Educação socioemocional</li></ul>
             </div>
             <div class="stage-card">
                 <h3>Anos Finais (6º ao 9º ano)</h3>
-                <ul>
-                    <li>Aprofundamento disciplinar</li>
-                    <li>Desenvolvimento do pensamento crítico</li>
-                    <li>Preparação para o ensino médio</li>
-                    <li>Projetos interdisciplinares</li>
-                    <li>Protagonismo estudantil</li>
-                    <li>Orientação vocacional inicial</li>
-                </ul>
+                <ul><li>Aprofundamento disciplinar</li><li>Desenvolvimento do pensamento crítico</li><li>Preparação para o ensino médio</li><li>Projetos interdisciplinares</li><li>Protagonismo estudantil</li><li>Orientação vocacional inicial</li></ul>
             </div>
         </div>
     </div>
@@ -549,57 +160,23 @@
     <section class="gallery">
         <h2>Nosso Ensino Fundamental</h2>
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="ensino fundamental/medalhas1.jpg" alt="Ensino Fundamental CEQ">
-            </div>
-            <div class="gallery-item">
-                <img src="ensino fundamental/medalhas2.jpg" alt="Ensino Fundamental CEQ">
-            </div>
-            <div class="gallery-item">
-                <img src="ensino fundamental/medalhas3.jpg" alt="Ensino Fundamental CEQ">
-            </div>
-            <div class="gallery-item">
-                <img src="ensino fundamental/medalhas4.jpg" alt="Ensino Fundamental CEQ">
-            </div>
-            <div class="gallery-item">
-                <img src="ensino fundamental/medalhas5.jpg" alt="Ensino Fundamental CEQ">
-            </div>
+            <div class="gallery-item"><img src="ensino fundamental/medalhas1.jpg" alt="Ensino Fundamental CEQ"></div>
+            <div class="gallery-item"><img src="ensino fundamental/medalhas2.jpg" alt="Ensino Fundamental CEQ"></div>
+            <div class="gallery-item"><img src="ensino fundamental/medalhas3.jpg" alt="Ensino Fundamental CEQ"></div>
+            <div class="gallery-item"><img src="ensino fundamental/medalhas4.jpg" alt="Ensino Fundamental CEQ"></div>
+            <div class="gallery-item"><img src="ensino fundamental/medalhas5.jpg" alt="Ensino Fundamental CEQ"></div>
         </div>
     </section>
 
     <section class="competencies">
         <h2>Competências Desenvolvidas</h2>
         <div class="comp-grid">
-            <div class="comp-item">
-                <i class="fas fa-brain"></i>
-                <h3>Pensamento Crítico</h3>
-                <p>Capacidade de analisar, questionar e resolver problemas complexos</p>
-            </div>
-            <div class="comp-item">
-                <i class="fas fa-users"></i>
-                <h3>Trabalho em Equipe</h3>
-                <p>Colaboração, respeito às diferenças e comunicação eficaz</p>
-            </div>
-            <div class="comp-item">
-                <i class="fas fa-lightbulb"></i>
-                <h3>Criatividade</h3>
-                <p>Inovação, expressão artística e soluções originais</p>
-            </div>
-            <div class="comp-item">
-                <i class="fas fa-chart-line"></i>
-                <h3>Autonomia</h3>
-                <p>Responsabilidade, organização e gestão do próprio aprendizado</p>
-            </div>
-            <div class="comp-item">
-                <i class="fas fa-heart"></i>
-                <h3>Inteligência Emocional</h3>
-                <p>Autoconhecimento, empatia e gestão das emoções</p>
-            </div>
-            <div class="comp-item">
-                <i class="fas fa-globe"></i>
-                <h3>Cidadania</h3>
-                <p>Valores éticos, respeito ao meio ambiente e consciência social</p>
-            </div>
+            <div class="comp-item"><i class="fas fa-brain"></i><h3>Pensamento Crítico</h3><p>Capacidade de analisar, questionar e resolver problemas complexos</p></div>
+            <div class="comp-item"><i class="fas fa-users"></i><h3>Trabalho em Equipe</h3><p>Colaboração, respeito às diferenças e comunicação eficaz</p></div>
+            <div class="comp-item"><i class="fas fa-lightbulb"></i><h3>Criatividade</h3><p>Inovação, expressão artística e soluções originais</p></div>
+            <div class="comp-item"><i class="fas fa-chart-line"></i><h3>Autonomia</h3><p>Responsabilidade, organização e gestão do próprio aprendizado</p></div>
+            <div class="comp-item"><i class="fas fa-heart"></i><h3>Inteligência Emocional</h3><p>Autoconhecimento, empatia e gestão das emoções</p></div>
+            <div class="comp-item"><i class="fas fa-globe"></i><h3>Cidadania</h3><p>Valores éticos, respeito ao meio ambiente e consciência social</p></div>
         </div>
     </section>
 
@@ -621,9 +198,11 @@
         </section>
     </div>
 
-    <a href="https://wa.me/556436511246" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Botões flutuantes de redes sociais -->
+    <div class="social-float">
+        <a href="https://www.instagram.com/cequirinopolis?igsh=MXdpeWY5aDhnZnVjZQ==" class="instagram-float" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/556436511246" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
 
     <footer>
         <p>&copy; 2025 COOPERATIVA DE ENSINO DE QUIRINÓPOLIS (CEQ) - TODOS OS DIREITOS RESERVADOS</p>
@@ -658,6 +237,3 @@
     </script>
 </body>
 </html>
-
-
-
