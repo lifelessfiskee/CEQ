@@ -1,52 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
   <!-- Página Principal -->
   <url>
-    <loc>https://ceq-escola.com.br/index.html</loc>
+    <loc>https://ceq-escola.com.br/</loc>
     <lastmod>2025-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ceq-escola.com.br/ceq-logo.png</image:loc>
+      <image:title>CEQ Quirinópolis - Logo da Cooperativa de Ensino</image:title>
+      <image:caption>Logo oficial da CEQ - Cooperativa de Ensino de Quirinópolis - Escola particular em Goiás</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://ceq-escola.com.br/ceq-og-image.png</image:loc>
+      <image:title>CEQ Quirinópolis - Escola Particular</image:title>
+      <image:caption>CEQ - 38 anos educando para a vida em Quirinópolis GO</image:caption>
+    </image:image>
   </url>
   
   <!-- Educação Infantil -->
   <url>
     <loc>https://ceq-escola.com.br/educacao-infantil.html</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>2025-11-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ceq-escola.com.br/ceq-logo.png</image:loc>
+      <image:title>Educação Infantil CEQ Quirinópolis</image:title>
+    </image:image>
   </url>
   
   <!-- Ensino Fundamental -->
   <url>
     <loc>https://ceq-escola.com.br/ensino-fundamental.html</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>2025-11-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ceq-escola.com.br/ceq-logo.png</image:loc>
+      <image:title>Ensino Fundamental CEQ Quirinópolis</image:title>
+    </image:image>
   </url>
   
   <!-- Ensino Médio -->
   <url>
     <loc>https://ceq-escola.com.br/ensino-medio.html</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>2025-11-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://ceq-escola.com.br/ceq-logo.png</image:loc>
+      <image:title>Ensino Médio CEQ Quirinópolis - Preparação ENEM</image:title>
+    </image:image>
   </url>
   
   <!-- Bolsas de Estudo -->
   <url>
     <loc>https://ceq-escola.com.br/bolsas.html</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>2025-11-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   
   <!-- Direção -->
   <url>
     <loc>https://ceq-escola.com.br/direcao.html</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>2025-11-22</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   
 </urlset>
