@@ -1,0 +1,20 @@
+# robots.txt - CEQ Quirinópolis
+# https://ceq-escola.com.br
+
+User-agent: *
+Allow: /
+
+# Arquivos importantes
+Allow: /ceq-logo.png
+Allow: /ceq-og-image.png
+Allow: /sitemap.xml
+
+# Bloquear pastas desnecessárias (se existirem)
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://ceq-escola.com.br/sitemap.xml
+
+# Crawl-delay (opcional - ajuda servidores)
+Crawl-delay: 1
