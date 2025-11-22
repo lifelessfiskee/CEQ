@@ -1,0 +1,21 @@
+{
+  "name": "CEQ - Cooperativa de Ensino de Quirinópolis",
+  "short_name": "CEQ Quirinópolis",
+  "description": "Escola particular com 38 anos de tradição em Quirinópolis-GO. Educação Infantil, Ensino Fundamental e Médio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2d7a4f",
+  "icons": [
+    {
+      "src": "ceq-logo-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "ceq-logo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
